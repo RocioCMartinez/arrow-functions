@@ -160,21 +160,21 @@ let message = name => `Hello, ${name}!`;
 console.log(message('Allie'));
 
 
-// let Student = function(name, age, hometown) {
-//   this.name = name;
-//   this.age = age;
-//   this.hometown = hometown;
-// };
+let Student = function(name, age, hometown) {
+  this.name = name;
+  this.age = age;
+  this.hometown = hometown;
+};
 
-// let joe = new Student('Joe', 'Schmoe', 100);
+let joe = new Student('Joe', 'Schmoe', 100);
 
-let student = (name, age, hometown) => ({
-  name: name,
-  age: age,
-  hometown: hometown
-});
+// let student = (name, age, hometown) => ({
+//   name: name,
+//   age: age,
+//   hometown: hometown
+// });
 
-let joe = student('Joe', 'Schmoe', 100);
+// let joe = student('Joe', 'Schmoe', 100);
 
 // TODO: Uncomment the following line of code to see the output in the browser console
 // Note that the arrow function will cause this code to break!
@@ -185,11 +185,11 @@ console.log(joe);
 
 
 
-// Student.prototype.greeting = function() {
-//   return `Hi, my name is ${this.name}`;
-// };
+Student.prototype.greeting = function() {
+  return `Hi, my name is ${this.name}`;
+};
 
-joe.greeting = () => {return `Hi, my name is ${joe.name}`};
+// joe.greeting = () => {return `Hi, my name is ${joe.name}`};
 
 // TODO: Uncomment the following line of code to see the output in the browser console
 // Note that the arrow function will cause this method to break!
@@ -204,10 +204,10 @@ console.log(joe.greeting());
 //   return 'This student is enrolled in Code 301.';
 // };
 
-student.courseName = () => { return 'This student is enrolled in Code 301.'};
+// student.courseName = () => { return 'This student is enrolled in Code 301.'};
 
 // TODO: Uncomment the following line of code to see the output in the browser console
-console.log(student.courseName());
+// console.log(student.courseName());
 
 
 
@@ -218,17 +218,17 @@ Student.prototype.scope = function() {
 };
 
 // TODO: Uncomment the following line of code to see the output in the browser console
-// joe.scope();
+joe.scope();
 
 Student.prototype.scopeArrow = () => console.log(this);
 
 // TODO: Uncomment the following line of code to see the output in the browser console
-// joe.scopeArrow();
+joe.scopeArrow();
 
 // TODO: Write a COMMENT below to answer the following questions.
 // 1. What is "this" when joe.scope() is invoked?
-//
+//"this" is referring to the objects properties. When joe.scope() is invoked the specified parameters are fed to be property values ('Joe', 'Shmoe', '100').
 // 2. What is "this" when joe.scopeArrow() is invoked?
-//
+//"this" when joe.scopeArrow() is invoked seem to be the properties of the window in the browser.
 // 3. Explain why "this" is different when an arrow function is used.
-//
+//"This" is different when an arrow function is used because an arrow function cannot be used as a constructor function, therefore it does not inheret the ability to call an objects properties with "this", instead it references the browser window.
